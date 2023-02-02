@@ -33,7 +33,6 @@ while numero != "":
     if numero == "" and i == 0:
         print("Nenhum número foi lido – A primeira linha lida foi vazia!!!")
         break
-    i+=1
     ## Como eu preciso usar a função int() para transformar a variável "numero",
     ## eu preciso fazer aplicar essa saída "prévia" do laço quando o usuário clicar informar ""
     ## ou será gerado um erro de "invalid literal for int() with base 10: '' "
@@ -44,10 +43,37 @@ while numero != "":
     ## Converto e adiciono o valor da variável numero na lista numeros
     numero = int(numero)
     numeros.append(numero)
+    print(i)
+
 
     ## somo numero à soma que foi inicalizada com 0 e 
     soma = numero + soma
+
+
     i+=1
 
+i = 0
+
+for num1 in numeros:
+    for num2 in numeros:
+        if num1 >= num2:
+            numeroMaior = num1
+        else:
+            numeroMaior = num2
+
+    for num2 in numeros:
+        if num1 < num2:
+            numeroMenor = num1
+        else:
+            numeroMenor = num2
+
+
+    i+=1
+
+if i != 0:
+    print(soma)
+    print(numeroMaior)
+    print(numeroMenor)
+    print("%.2f" % (soma/len(numeros)))
 
 
