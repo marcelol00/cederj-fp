@@ -13,7 +13,7 @@ média dos números lidos, com precisão de duas casas decimais, conforme teste 
 1. Ler entradas de texto até que uma linha vazia seja digitada - ok
 2. As entradas precisam ser convertidas em números inteiros após serem lidas - ok
 3. Informar "Nenhum número foi lido – A primeira linha lida foi vazia!!!" caso nada seja informado na primeira linha. - ok
-4. Havendo números, informe o maior, o menor e a média de todos os números com duas casas decimais apenas como resultado.
+4. Havendo números, informe o maior, o menor e a média de todos os números com duas casas decimais apenas como resultado. - ok
 
 """
 ## Inicialização de variáveis
@@ -71,9 +71,8 @@ for num1 in numeros:
     i+=1
 
 if i != 0:
-    print(soma)
-    print(numeroMaior)
-    print(numeroMenor)
-    print("%.2f" % (soma/len(numeros)))
-
-
+    numeros.sort()
+    print("A soma é: ", soma)
+    print("O número menor é: ", numeros[0])
+    print("O númoer maior é: ", numeros[len(numeros)-1])
+    print("A média dos números é: ", "%.2f" % (soma/len(numeros)))
