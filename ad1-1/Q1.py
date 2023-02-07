@@ -16,63 +16,56 @@ média dos números lidos, com precisão de duas casas decimais, conforme teste 
 4. Havendo números, informe o maior, o menor e a média de todos os números com duas casas decimais apenas como resultado. - ok
 
 """
-## Inicialização de variáveis
-numero = 0
+##Requisição de input do usuário
+numero = input("Digite um número para iniciar ou tecle enter para terminar")
+
+## Ponto de checagem caso nenhum número seja informado. 
+## Se um número for informado, eu o transformo em int
+## e depois atribuo esse valor às outras variáveis.
+## Isso me permite inicializá-las para poder trabalhar com elas
+## nas operações de comparação e soma dentro do while mais abaixo.
+
+if numero == "":
+    print("Nenhum número foi lido – A primeira linha lida foi vazia!!!")
+else:
+    numeroMenor = numeroMaior = soma = numero = int(numero)
+
+## Variável para ser usada no cálculo da média. 
+## Ela precisa ser zero mesmo com um input já feito, pois
+## se o valor informado for "" ele pulará o while e irá para o if
+## mais abaixo. Eu poderia configurar de outras formas, mas essa 
+## foi a que encontrei para fazer o programa funcionar mais adequadamente
+## sem ter que alterar muito o código já feito.
 i=0
-numeros=[]
-soma = 0
 
-## Início do loop while que compara a variável numero com com "" para então começar.
+## Comparo a variável para que o while não seja iniciado erroneamente.
 while numero != "":
-
+    
     numero = input("Digite um número para iniciar ou tecle enter para terminar")
-
-    ## Ponto de checagem caso nenhum número seja informado. Como essa checagem deve ser feita apenas na primeira vez,
-    ## eu utilizo a variável "i" para fazer o controle da entrada do programa no "if". Eu logo adiciono +1 à "i" para que 
-    ## possa-se sair do programa sem aparecer a imagem abaixo.
-    if numero == "" and i == 0:
-        print("Nenhum número foi lido – A primeira linha lida foi vazia!!!")
-        break
+    
     ## Como eu preciso usar a função int() para transformar a variável "numero",
-    ## eu preciso fazer aplicar essa saída "prévia" do laço quando o usuário clicar informar ""
-    ## ou será gerado um erro de "invalid literal for int() with base 10: '' "
-    if numero == "":
-        break
+    ## eu preciso fazer a verificação ou será gerado um erro de 
+    ## "invalid literal for int() with base 10: '' "
+    if numero != "":
+        numero = int(numero)
+   
+        ## somo numero à soma que foi inicalizada com o primeiro número informado
+        soma = numero + soma
 
-
-    ## Converto e adiciono o valor da variável numero na lista numeros
-    numero = int(numero)
-    numeros.append(numero)
-    print(i)
-
-
-    ## somo numero à soma que foi inicalizada com 0 e 
-    soma = numero + soma
-
-
+        ## Comparo o novo número infomado com o inicial
+        if numero > numeroMaior:
+            numeroMaior = numero
+        elif numero < numeroMenor:
+            numeroMenor = numero
+    ## Esse +1 é adicionado mesmo que o valor seja "" para sair do código para compensar
+    ## pelo +1 que não foi adicionado no input fora do laço while.
     i+=1
 
-i = 0
 
-for num1 in numeros:
-    for num2 in numeros:
-        if num1 >= num2:
-            numeroMaior = num1
-        else:
-            numeroMaior = num2
-
-    for num2 in numeros:
-        if num1 < num2:
-            numeroMenor = num1
-        else:
-            numeroMenor = num2
-
-
-    i+=1
-
+## Utilizo um if pois se não digitar nada na entrada gerará
+## erro. Se o 'i' for maior que '1' significa que o programa rodou ao menos uma vez
 if i != 0:
-    numeros.sort()
     print("A soma é: ", soma)
-    print("O número menor é: ", numeros[0])
-    print("O númoer maior é: ", numeros[len(numeros)-1])
-    print("A média dos números é: ", "%.2f" % (soma/len(numeros)))
+    print("O número menor é: ", numeroMenor)
+    print("O número maior é: ", numeroMaior)
+    print("A média dos números é: ", "%.2f" % (soma/(i)))
