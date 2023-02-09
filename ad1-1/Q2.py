@@ -75,15 +75,11 @@ for letra in letras:
             vogaisAuxiliar[j] = vogaisAuxiliar[j] + 1
         j+=1
 
-############
-############
 
 ## Agora eu concateno todas as variações de acentos das vogais 
 ## na vogal minúscula, tornando, assim, menos extensa a lista
 ## a ser impressa.
 
-############
-############
 
 j = 0
 for total in vogaisAuxiliar:
@@ -116,10 +112,7 @@ tamanhoVogais = len(vogais)
 
 
 if quantVogais != 0:
-    i=0
-    print("O total de vogais é:", quantVogais)
-    for passo in range(tamanhoVogais):
-        print("Quantidade de vezes que a letra", vogais[i] , "aparece é ", vogalAuxiliar[i])
-        i+=1
+    print("No total há %i de vogais em '%s'" % (quantVogais, frase))
+    print("Há %i A's,  %i E's, %i I's, %i O's, %i U's " % (vogalAuxiliar[0], vogalAuxiliar[1], vogalAuxiliar[2], vogalAuxiliar[3], vogalAuxiliar[4],))
 else:
-    print("Não há vogais na entrada", )
+    print("Não há vogais na entrada '%s'" % (frase))
