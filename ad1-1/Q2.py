@@ -113,6 +113,6 @@ tamanhoVogais = len(vogais)
 
 if quantVogais != 0:
     print("No total há %i de vogais em '%s'" % (quantVogais, frase))
-    print("Há %i A's,  %i E's, %i I's, %i O's, %i U's " % (vogalAuxiliar[0], vogalAuxiliar[1], vogalAuxiliar[2], vogalAuxiliar[3], vogalAuxiliar[4],))
+    print("Há %i A's, %i E's, %i I's, %i O's, %i U's " % (vogalAuxiliar[0], vogalAuxiliar[1], vogalAuxiliar[2], vogalAuxiliar[3], vogalAuxiliar[4],))
 else:
     print("Não há vogais na entrada '%s'" % (frase))

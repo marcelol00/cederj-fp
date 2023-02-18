@@ -28,7 +28,11 @@ numero = input("Digite um número para iniciar ou tecle enter para terminar")
 if numero == "":
     print("Nenhum número foi lido – A primeira linha lida foi vazia!!!")
 else:
-    numeroMenor = numeroMaior = soma = numero = int(numero)
+    numero = int(numero)
+    soma = numero
+    numeroMaior = numero
+    soma = numero
+    numeroMenor = numero
 
 ## Variável para ser usada no cálculo da média. 
 ## Ela precisa ser zero mesmo com um input já feito, pois
